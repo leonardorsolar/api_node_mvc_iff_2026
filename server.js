@@ -23,6 +23,10 @@ app.use(express.json());
 // Serve arquivos estáticos da pasta public
 app.use(express.static('public'));
 
+app.get('/healthz', (req, res) => {
+  res.status(200).send('ok');
+});
+
 // ===== ROTAS E LISTENERS =====
 // (Serão adicionadas nos próximos passos)
 /**
@@ -33,6 +37,6 @@ app.use(express.static('public'));
 app.get('/api/users', (req, res) => getAllUsers(req, res, db));
 
 // Inicia o servidor
-app.listen(PORT, HOST, () => {
-    console.log(`🚀 Servidor rodando em http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
