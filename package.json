@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "api_node_mvc_iff_2026",
   "version": "1.0.0",
   "description": "# Tarefa 1📘 Tutorial: Construindo um Front-end + API em Node.js (do zero)",

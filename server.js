@@ -1,13 +1,12 @@
 // ===== IMPORTAÇÕES =====
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const userController = require('./src/controllers/userController');
-const data = require('./src/data/data');
+import express from 'express';
+import cors from 'cors';
+import { getAllUsers } from './src/controllers/userController.js';
+import UserDatabase from './src/data/data.js';
 
-console.log(data);
-const user = new data()
-console.log(user);
+const db = new UserDatabase();
+console.log(db);
+console.log(db.getAllUsers());
 
 // ===== CONFIGURAÇÃO =====
 const app = express();
@@ -31,7 +30,7 @@ app.use(express.static('public'));
  * Descrição: Retorna lista de TODOS os usuários
  * Resposta: Array com todos os usuários
  */
-app.get('/api/users', userController.getAllUsers);
+app.get('/api/users', (req, res) => getAllUsers(req, res, db));
 
 // Inicia o servidor
 app.listen(PORT, HOST, () => {

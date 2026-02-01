@@ -28,7 +28,7 @@ dica: verificar qual a porta o servidor
 **Parte 2 – Back-end (API Node.js)**: 
 
 **Criar o servidor**
-Prompt 1: Inicialize o package.json e instale as dependências `express` e `cors`. Configure o `package.json` com o script `"start": "node server.js"`. Crie o arquivo .gitignore
+Prompt 1: Inicialize o package.json e instale as dependências `express` e `cors`. Configure o `package.json` com o script `"start": "node server.js"`. Configure ES Modules (ESM).Crie o arquivo .gitignore
 
 **Arquivos do projeto**: 
 Prompt 2: crie o arquivo `server.js` na raiz do projeto e crie os arquivos `controllers/userController.js` e `data/data.js` dentro da pasta src.

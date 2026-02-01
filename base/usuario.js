@@ -4,4 +4,4 @@ function listarUsuario(){
     ]
 }
 
-module.exports = listarUsuario;
+export default listarUsuario;

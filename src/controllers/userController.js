@@ -1,8 +1,5 @@
 // ===== IMPORTAÇÕES =====
-const UserDatabase = require('../data/data');
-
-const user = new UserDatabase()
-console.log(user);
+import UserDatabase from '../data/data.js';
 
 // ===== CONTROLLERS =====
 
@@ -17,13 +14,13 @@ console.log(user);
  * 2. Busca todos os usuários no array (data.js)
  * 3. Retorna JSON com status 200 e a lista de usuários
  */
-const getAllUsers = (req, res) => {
+const getAllUsers = (req, res, db) => {
     try {
         // Retorna todos os usuários com status 200 (OK)
         res.status(200).json({
             success: true,
             message: 'Usuários obtidos com sucesso',
-            data: user.getAllUsers()
+            data: db.getAllUsers()
         });
     } catch (error) {
         // Se houver erro, retorna status 500 (Erro interno do servidor)
@@ -36,6 +33,4 @@ const getAllUsers = (req, res) => {
 };
 
 // ===== EXPORTS =====
-module.exports = {
-    getAllUsers
-};
+export { getAllUsers };

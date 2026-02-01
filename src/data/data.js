@@ -35,4 +35,5 @@ class UserDatabase {
 }
 
 // Exporta a classe (ou uma instância, conforme preferência)
-module.exports = UserDatabase;
+// Exporta a CLASSE para ser instanciada onde necessário
+export default UserDatabase;

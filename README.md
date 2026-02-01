@@ -126,10 +126,15 @@ npm install express cors
 Abra o `package.json` e adicione:
 
 ```json
-"scripts": {
-  "start": "node server.js"
+{
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
 }
 ```
+
+🧠 O `"type": "module"` ativa **ES Modules** no Node.js
 
 Agora você pode rodar o servidor com:
 
@@ -170,11 +175,11 @@ data/data.js
 ### Conteúdo do `data.js`
 
 ```js
-let users = [
+const users = [
   { id: 1, name: 'Leo', email: 'leo@gmail.com' }
 ];
 
-module.exports = users;
+export default users;
 ```
 
 🧠 **Aqui estamos simulando um banco de dados**
@@ -184,7 +189,7 @@ module.exports = users;
 ## 🧠 7. Implementando o `userController.js`
 
 ```js
-const users = require('../data/data');
+import users from '../data/data.js';
 
 const getAllUsers = (req, res) => {
   res.json(users);
@@ -225,7 +230,7 @@ const deleteUser = (req, res) => {
   res.status(204).send();
 };
 
-module.exports = {
+export {
   getAllUsers,
   getUserByID,
   createUser,
@@ -239,17 +244,21 @@ module.exports = {
 ## 🚀 8. Configurando o `server.js`
 
 ```js
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-
-const {
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import {
   getAllUsers,
   getUserByID,
   createUser,
   updateUser,
   deleteUser
-} = require('./controllers/userController');
+} from './src/controllers/userController.js';
+
+// Compatibilidade com __dirname em ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -275,7 +284,7 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(PORT, HOST, () => {
-  console.log(`Servidor rodando em http://${HOST}:${PORT}`);
+  console.log(`🚀 Servidor rodando em http://${HOST}:${PORT}`);
 });
 ```
 
