@@ -582,4 +582,7 @@ Esse é exatamente o caminho usado em projetos profissionais.
 
 
 ## Deploy:
+Render:
 https://api-node-mvc-iff-2026.onrender.com/
+railway:
+https://apinodemvciff2026-production.up.railway.app/
