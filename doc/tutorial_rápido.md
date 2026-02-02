@@ -4,6 +4,19 @@ Planeja
 Implementa
 Testa
 
+
+# Tarefa 1📘 Tutorial: Construindo um Front-end + API em Node.js (do zero)
+
+## 🎯 Objetivo do projeto
+
+Criar uma aplicação simples onde:
+
+* O **Front-end (HTML)** possui um formulário com **nome e e-mail**
+* O **Back-end (API Node.js)** gerencia usuários (CRUD)
+* Tudo organizado seguindo uma **arquitetura clara e didática**
+
+---
+
 **Arquitetura**: 
 
 Prompt 1: explique rapidamente a arquitetura escolhida (MVC) e mostre a estrutura de pastas do projeto.
